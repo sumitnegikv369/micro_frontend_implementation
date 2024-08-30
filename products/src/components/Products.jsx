@@ -13,11 +13,10 @@ const Products = () => {
 
     return <div className="grid grid-cols-4 gap-5 m-4">
         {products.map((product) => (
-            <div key={product.id} className="m-4 rounded-md overflow-hidden cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
+            <Link to={`/product/${product.id}`} key={product.id} className="m-4 rounded-md overflow-hidden cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
                 <img src={product.image} alt={product.name} className="aspect-square"/>
                 <div className="flex text-sm my-2 mx-1">
-                    <div className="flex-grow font-bold">
-                        <Link to={`/product/${product.id}`}>{product.name}</Link>
+                    <div className="flex-grow font-bold">{product.name}
                     </div>
                     <div className="flex-end font-mono text-green-800">{currency.format(product.price)}</div>
                 </div>
@@ -26,7 +25,7 @@ const Products = () => {
                             Add to cart
                         </button>
                     </div>
-            </div>
+            </Link>
         ))}
     </div>
 }

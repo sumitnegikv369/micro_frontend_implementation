@@ -25,7 +25,7 @@ const PDP = () => {
   if (!product) return null;
 
   return (
-    <div className="flex justify-center mx-12 my-10 gap-4 bg-gray-300/30 p-8">
+    <div className="flex justify-center mx-12 my-10 gap-4 bg-gray-300/30 p-8 h-[80%]">
       <div>
         <img src={product.image} alt={product.name} className="rounded-md" />
       </div>
