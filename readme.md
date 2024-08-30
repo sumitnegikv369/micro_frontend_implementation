@@ -1,4 +1,4 @@
-# Application README
+# Micro FrontEnd 🚀
 
 ## Overview
 
