@@ -30,11 +30,11 @@ In the cart module, we used the `ProductService` as an Anti-Corruption Layer to 
 
 #### Example Routing in the Container Module
 
-In `MainLayout.jsx` of the container module, we implemented routing to different micro-frontends. For example, routing is done to `ProductContent` and `PDPContent`.
+In `MainLayout.jsx` of the container module, we implemented routing to different micro-frontends. For example, routing is done to `ProductList` and `PDPContent`.
 
 ### Dynamic Component Loading
 
-We can dynamically load components from remotely deployed URLs. Here is an example of how to load the `Header` component dynamically:
+And also we can dynamically load components from remotely deployed URLs. Here is an example of how to load the `Header` component dynamically:
 
 ```javascript
 import React, { useState, useEffect } from 'react';
