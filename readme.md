@@ -1,18 +1,39 @@
- remotes: This object is where we would define remote modules that our application depends on. For example, if our application needs to load components or utilities from another federated module, we would specify those here. 
- exposes: This object defines what parts of our application we want to make available to other federated modules.
+# Application README
 
- used ProductService in cart module to act as a Anti Corruption Layer -> this will convert the incoming dollar price to INR.
- also in MainLayout.jsx in container module implemented routing to the different micro frontend -> here these are ProductContent and PDPContent
+## Overview
 
-The Anti-Corruption Layer (ACL) consists of three main components:
+This project involves a micro-frontend architecture with a focus on dynamic loading and Anti-Corruption Layer (ACL) design patterns.
 
-API: This is the service or domain-specific language used by other micro-frontends or services.
-Adapter: This component receives external data and transforms it into a format that is compatible with the micro-frontend where it will be used.
-Facade Interface: This uses the adapter to integrate the transformed data into the micro-frontend application, providing a seamless way to handle external interactions.
+### Remote Modules
 
-"In this approach, we can dynamically load the Header component from a remotely deployed URL:
+The `remotes` object is where we define remote modules that our application depends on. For example, if our application needs to load components or utilities from another federated module, we specify those dependencies here.
 
-javascript
+### Exposed Modules
+
+The `exposes` object defines the parts of our application that we want to make available to other federated modules.
+
+### Anti-Corruption Layer (ACL)
+
+The Anti-Corruption Layer (ACL) is implemented to handle interactions between different parts of our system. It consists of three main components:
+
+1. **API**: This is the service or domain-specific language used by other micro-frontends or services.
+2. **Adapter**: This component receives external data and transforms it into a format compatible with the micro-frontend where it will be used.
+3. **Facade Interface**: This uses the adapter to integrate the transformed data into the micro-frontend application, providing a seamless way to handle external interactions.
+
+#### Example Usage in the Cart Module
+
+In the cart module, we used the `ProductService` as an Anti-Corruption Layer to convert incoming dollar prices to INR.
+
+#### Example Routing in the Container Module
+
+In `MainLayout.jsx` of the container module, we implemented routing to different micro-frontends. For example, routing is done to `ProductContent` and `PDPContent`.
+
+### Dynamic Component Loading
+
+We can dynamically load components from remotely deployed URLs. Here is an example of how to load the `Header` component dynamically:
+
+```javascript
+import React, { useState, useEffect } from 'react';
 
 const App = () => {
   const [Header, setHeader] = useState(null);
@@ -32,6 +53,9 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
+```
 
 In the context of an Anti-Corruption Layer (ACL), the role of the ACL is to serve as a boundary that protects each application or micro-frontend from unwanted dependencies and changes in other systems. Here's how the ACL helps in managing API changes between Application A and Application B:
 
